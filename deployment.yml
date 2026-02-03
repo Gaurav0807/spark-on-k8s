@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment # I want to create a Deployment
+metadata:
+  name: demo # name of deployments
+  namespace: dev
+spec: # what do we want kubernates to do.
+  replicas: 1 # I want 1 copy running all the time
+  selector:
+    matchLabels:
+      app: demo
+  template: # This is the blueprint for creating Pods
+    metadata:
+      labels:
+        app: demo
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerPort: 80
+
+
+
+# Outer spec → Deployment rules
+# Inner spec → Pod contents
+
+# Deployment spec → how many Pods
+# Pod spec        → what runs inside Pod
+#kubectl apply -f deployment.yml

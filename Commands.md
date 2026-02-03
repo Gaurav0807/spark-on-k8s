@@ -39,3 +39,20 @@ kubectl delete pod nginx-pod
 kubectl get pods
 
 
+
+# Apply Changes :- 
+kubectl create namespace dev
+
+kubectl apply -f deployment.yml
+
+kubectl get deployments -n dev
+
+kubectl get pods -n dev
+
+# Delete all resources inside namespace
+
+kubectl delete all --all -n dev
+
+kubectl get all -n dev
+
+kubectl delete namespace dev
