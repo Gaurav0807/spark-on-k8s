@@ -20,3 +20,4 @@ Run Exactly one pod on every node.
 NodePort exposes a Service on a static port in the 30000–32767 range on every node.
 
 
+

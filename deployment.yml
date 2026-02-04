@@ -18,6 +18,13 @@ spec: # what do we want kubernates to do.
         image: nginx
         ports:
         - containerPort: 80
+        resources:
+          requests: #Minimum Resources I need to run
+            cpu: "250m"
+            memory: "260Mi"
+          limits: #Maximum resources I am ALLOWED to use
+            cpu: "500m"
+            memory: "512Mi"
 
 
 
