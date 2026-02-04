@@ -70,13 +70,15 @@ kubectl describe svc demo-service -n dev
 
 # Resources Understand
 
-resources: 
-requests: # Minimum resources I NEED to run”
-    cpu: "250m" #This container needs 25% of one CPU core to run
-    memory: "260Mi"
-limits: #Maximum resources I am ALLOWED to use
-    cpu: "500m"
-    memory: "512Mi"
+```
+resources:
+  requests:
+    cpu: "250m"      # Minimum CPU required (25% of one core)
+    memory: "260Mi"  # Minimum memory required
+  limits:
+    cpu: "500m"      # Maximum CPU allowed
+    memory: "512Mi"  # Maximum memory allowed
+```
 
 m = millicpu
 1000m = 1 CPU core
