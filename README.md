@@ -21,3 +21,13 @@ NodePort exposes a Service on a static port in the 30000–32767 range on every 
 
 
 
+# ConfigMap 
+
+Its kubernates object used to stire external files or configuration data and make them available
+inside pods
+
+```
+kubectl create configmap python-script \
+  --from-file=hello.py \
+  -n dev
+```

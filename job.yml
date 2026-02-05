@@ -1,0 +1,25 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: python-job
+  namespace: dev
+spec:
+  backoffLimit: 0 # If the job fails, do NOT retry.
+  template:
+    spec:
+      restartPolicy: Never #If the container exits, don’t restart it .
+      containers:
+      - name: python
+        image: python:3.11-slim
+
+        command: ["python"]
+        args: ["/app/hello.py"]
+
+        volumeMounts: #Mount the volume python-code inside the container at /app
+        - name: python-code
+          mountPath: /app
+
+      volumes: #Create volume call python-code whose contents will come from ConfigMap name python-script
+      - name: python-code
+        configMap:
+          name: python-script
